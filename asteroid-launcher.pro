@@ -6,20 +6,26 @@ QT += quick waylandcompositor dbus
 CONFIG += qt link_pkgconfig qtquickcompiler
 PKGCONFIG += lipstick-qt5 timed-qt5 mlite5
 
+system(qdbusxml2cpp externalappmessages.xml -a externalappmessagesadaptor -c ExternalAppMessagesAdaptor)
+
 SOURCES += \
     main.cpp \
     applauncherbackground.cpp \
     firstrun.cpp \
     gesturefilterarea.cpp \
     launcherlocalemanager.cpp \
-    notificationsnoozer.cpp
+    notificationsnoozer.cpp \
+    externalappmessages.cpp \
+    externalappmessagesadaptor.cpp
 
 HEADERS += \
     applauncherbackground.h \
     firstrun.h \
     gesturefilterarea.h \
     launcherlocalemanager.h \
-    notificationsnoozer.h
+    notificationsnoozer.h \
+    externalappmessages.h \
+    externalappmessagesadaptor.h
 
 RESOURCES += \
     resources-qml.qrc

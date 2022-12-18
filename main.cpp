@@ -45,6 +45,7 @@
 #include "launcherlocalemanager.h"
 #include "gesturefilterarea.h"
 #include "notificationsnoozer.h"
+#include "externalappmessages.h"
 
 int main(int argc, char **argv)
 {
@@ -81,6 +82,8 @@ int main(int argc, char **argv)
         nativeOrientation = app.primaryScreen()->primaryOrientation();
     app.engine()->rootContext()->setContextProperty("nativeOrientation", nativeOrientation);
     app.engine()->rootContext()->setContextProperty("firstRun", firstRun);
+
+    new ExternalAppMessages(&app, app.engine()->rootContext());
 
     qmlRegisterType<AppLauncherBackground>("org.asteroid.launcher", 1, 0, "AppLauncherBackground");
     qmlRegisterType<GestureFilterArea>("org.asteroid.launcher", 1, 0, "GestureFilterArea");
